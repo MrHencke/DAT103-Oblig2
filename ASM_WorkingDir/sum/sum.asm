@@ -2,8 +2,8 @@
 ; Utdata Programmet skriver ut summen av de to sifrene,
 ; forutsatt at summen er mindre enn 10.
 
-; Konstantercr equ 13 ; Vognreturlf 
-equ 10 ; Linjeskift
+; Konstantercr equ 13 ; Vognretur
+lf equ 10 ; Linjeskift
 SYS_EXIT  equ 1
 SYS_READ  equ 3
 SYS_WRITE equ 4
@@ -90,7 +90,7 @@ lessiffer:
 Lokke:
     ; Leser et tegn fra tastaturet
     mov eax,SYS_REA
-    Dmov ebx,STDIN
+    mov ebx,STDIN
     mov ecx,siffer
     mov edx,1
     int 80h
@@ -98,7 +98,8 @@ Lokke:
     cmp ecx,' '
     je Lokke
     cmp ecx,'0' ; Sjekk at tast er i område 0-9
-    jb Feilcmp ecx,'9'
+    jb Feil
+    cmp ecx,'9'
     ja Feil
     sub ecx,'0' ; Konverter ascii til tall.
     mov edx,0 ; signaliser vellykket innlesning
@@ -113,7 +114,9 @@ Feil:
     mov eax,SYS_WRITE
     int 80h
     mov edx,1 ; Signaliser mislykket innlesning av tall
-    pop ebxpop eaxret ; Mislykket retur
+    pop ebx
+    pop eax
+    ret ; Mislykket retur
 
 ; ---------------------------------------------------------
 ; Flytt cursor helt til venstre på neste linje

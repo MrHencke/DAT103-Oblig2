@@ -19,3 +19,7 @@ _start:
     mov ebx,0
     mov eax,1       ; sys_exit
     int 80h
+
+
+
+    
