@@ -51,6 +51,7 @@ call nylinje
 add eax,ebx
 mov ecx,eax
 call skrivsiffer ; Skriv ut verdi i ecx som ensifret tall
+
 Slutt:
 mov eax,SYS_EXIT
 mov ebx,0
