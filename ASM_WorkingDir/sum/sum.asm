@@ -1,3 +1,4 @@
+; Sum 1 (Tar summer opp til 10)
 ; Inndata Programmet leser inn to sifre skilt med ett eller flere mellomrom
 ; Utdata Programmet skriver ut summen av de to sifrene,
 ; forutsatt at summen er mindre enn 10.
@@ -13,7 +14,7 @@ STDERR equ 2
 
 ; Datasegment
 section .bss
-siffer resb 5
+siffer resb 4
 
 ; Datasegment
 section .data
@@ -28,13 +29,13 @@ crlflen equ $ - crlf
 ; Kodesegment med program
 section .text
 global _start
+
 _start:
 mov edx,meldlen
 mov ecx,meld
 mov ebx,STDOUT
 mov eax,SYS_WRITE
 int 80h
-
 ; Les tall, innlest tall returneres i ecx
 ; Vellykket retur dersom edx=0
 call lessiffer
