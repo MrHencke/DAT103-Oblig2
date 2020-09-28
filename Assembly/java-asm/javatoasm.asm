@@ -1,5 +1,5 @@
 section .bss
-    a resb 1            ;Plass til variabelen a
+    a resb 1
 
 section .data
     crlf db 13,10
