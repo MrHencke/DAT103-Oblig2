@@ -1,7 +1,4 @@
 ; Sum 2 (Tar opp til 18)
-; Inndata Programmet leser inn to sifre skilt med ett eller flere mellomrom
-; Utdata Programmet skriver ut summen av de to sifrene,
-; forutsatt at summen er mindre enn 10.
 ; Konstanter
    cr equ 13 ; Vognretur
 	lf equ 10 ; Linjeskift
@@ -39,7 +36,7 @@ _start:
 	; Les tall, innlest tall returneres i ecx
 	; Vellykket retur dersom edx=0
 	call lessiffer
-	cmp edx,0 ; Test om vellykket innlesning
+	cmp edx,0 ; sammenligner edx med 0
 	jne Slutt ; Hopp tilavslutning ved feil i innlesing
 	mov eax,ecx ; Første tall/siffer lagres i reg eax
 	call lessiffer

@@ -11,7 +11,7 @@ global _start
 
 _start:
         mov eax,0
-        mov [a],eax     ;variabelen a blir tildelt verdien 0.
+        mov [a],eax     ;variabelen a blir tildelt verdien 0 fra eax.
         mov ecx,0       ;Tellevariabelen i.
         call nylinje    
 lokke:  cmp ecx,10      ;Starten av løkken.Sammenligner tellevariabelen med 10 (i < 10)
